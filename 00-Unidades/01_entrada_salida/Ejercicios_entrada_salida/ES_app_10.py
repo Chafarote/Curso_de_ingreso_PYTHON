@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_10
 ---
@@ -36,7 +37,7 @@ class App(customtkinter.CTk):
     def btn_calcular_on_click(self):
         importe = int(self.txt_importe.get())
         descuento = importe * 20 / 100
-        alert(title="UTN FRA",message=importe-descuento)
+        alert("Monto con descuento",importe-descuento)
 
 
 if __name__ == "__main__":

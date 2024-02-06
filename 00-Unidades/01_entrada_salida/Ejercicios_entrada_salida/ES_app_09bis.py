@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_09bis
 ---
@@ -42,7 +43,7 @@ class App(customtkinter.CTk):
         sueldo = int(self.txt_sueldo.get())
         porcentaje = int(self.txt_incremento.get())
         aumento = sueldo * porcentaje / 100
-        alert(title="UTN FRA", message=sueldo + aumento)
+        alert("Sueldo con aumento",sueldo + aumento)
         
     
 if __name__ == "__main__":

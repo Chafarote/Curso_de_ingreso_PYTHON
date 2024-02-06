@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_07
 ---
@@ -52,25 +53,25 @@ class App(customtkinter.CTk):
         numero_a = int(self.txt_operador_a.get())
         numero_b = int(self.txt_operador_b.get())
         suma = str(numero_a + numero_b)
-        alert(title="UTN FRA",message=("El resultado de la suma es: " + suma))
+        alert("Sumar",("El resultado de la suma es: " + suma))
 
     def btn_restar_on_click(self):
         numero_a = int(self.txt_operador_a.get())
         numero_b = int(self.txt_operador_b.get())
         resta = str(numero_a - numero_b)
-        alert(title="UTN FRA",message=("El resultado de la resta es: " + resta))
+        alert("Restar",("El resultado de la resta es: " + resta))
 
     def btn_multiplicar_on_click(self):
         numero_a = int(self.txt_operador_a.get())
         numero_b = int(self.txt_operador_b.get())
         multiplicacion = str(numero_a * numero_b)
-        alert(title="UTN FRA",message=("El resultado de la multiplicacion es: " + multiplicacion))
+        alert("Multiplicar",("El resultado de la multiplicacion es: " + multiplicacion))
 
     def btn_dividir_on_click(self):
         numero_a = int(self.txt_operador_a.get())
         numero_b = int(self.txt_operador_b.get())
         division = str(numero_a / numero_b)
-        alert(title="UTN FRA",message=("El resultado de la division es: " + division))
+        alert("Dividir",("El resultado de la division es: " + division))
         
 if __name__ == "__main__":
     app = App()

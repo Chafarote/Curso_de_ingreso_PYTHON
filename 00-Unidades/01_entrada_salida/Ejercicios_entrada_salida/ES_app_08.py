@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_08
 ---
@@ -43,7 +44,7 @@ class App(customtkinter.CTk):
         numero_a = int(self.txt_operador_a.get())
         numero_b = int(self.txt_operador_b.get())
         resto = numero_a % numero_b
-        alert(title="UTN FRA", message=("El resto de dividir",numero_a,"por",numero_b,"es",resto))
+        alert("Resto",("El resto de dividir",numero_a,"por",numero_b,"es",resto))
         
         
     

@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_05
 ---
@@ -42,7 +43,7 @@ class App(customtkinter.CTk):
     def btn_mostrar_on_click(self):
         nombre = self.txt_nombre.get()
         edad = self.txt_edad.get()
-        alert(title="UTN FRA",message=("Usted se llama " + nombre + " y su edad es " + edad + " años"))
+        alert("Informacion",("Usted se llama " + nombre + " y su edad es " + edad + " años"))
 
         
     

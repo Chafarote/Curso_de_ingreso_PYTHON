@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_09
 ---
@@ -37,7 +38,7 @@ class App(customtkinter.CTk):
     def btn_calcular_on_click(self):
         sueldo = int(self.txt_sueldo.get())
         aumento = sueldo * 15 / 100
-        alert(title="UTN FRA",message=sueldo+aumento)
+        alert("Sueldo con aumento",sueldo+aumento)
         
     
 if __name__ == "__main__":
