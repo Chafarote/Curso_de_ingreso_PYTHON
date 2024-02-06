@@ -7,6 +7,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: entrada_salida_04
 ---
@@ -34,7 +35,7 @@ class App(customtkinter.CTk):
 
     def btn_mostrar_on_click(self):
         nombre = prompt(title="UTN FRA",prompt="Ingrese su nombre:")
-        self.txt_nombre.delete(0,100)
+        self.txt_nombre.delete(0,"end")
         self.txt_nombre.insert(0,nombre)
         
     
