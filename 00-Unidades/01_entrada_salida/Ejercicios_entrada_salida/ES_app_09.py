@@ -36,9 +36,11 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        sueldo = int(self.txt_sueldo.get())
+        sueldo = self.txt_sueldo.get()
+        sueldo = float(sueldo)
         aumento = sueldo * 15 / 100
-        alert("Sueldo con aumento",sueldo+aumento)
+        mensaje = f"Su sueldo con aumeto es de {sueldo + aumento}"
+        alert("Aumento",mensaje)
         
     
 if __name__ == "__main__":

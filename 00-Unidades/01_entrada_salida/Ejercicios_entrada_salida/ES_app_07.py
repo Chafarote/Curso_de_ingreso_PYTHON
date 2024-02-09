@@ -50,28 +50,40 @@ class App(customtkinter.CTk):
         self.btn_dividir.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_sumar_on_click(self):
-        numero_a = int(self.txt_operador_a.get())
-        numero_b = int(self.txt_operador_b.get())
-        suma = str(numero_a + numero_b)
-        alert("Sumar",("El resultado de la suma es: " + suma))
+        numero_a = self.txt_operador_a.get()
+        numero_b = self.txt_operador_b.get()
+        numero_a = int(numero_a)
+        numero_b = int(numero_b)
+        resultado = numero_a + numero_b
+        mensaje = f"El resultado de la suma es: {resultado}"
+        alert("Sumar",mensaje)
 
     def btn_restar_on_click(self):
-        numero_a = int(self.txt_operador_a.get())
-        numero_b = int(self.txt_operador_b.get())
-        resta = str(numero_a - numero_b)
-        alert("Restar",("El resultado de la resta es: " + resta))
+        numero_a = self.txt_operador_a.get()
+        numero_b = self.txt_operador_b.get()
+        numero_a = int(numero_a)
+        numero_b = int(numero_b)
+        resultado = numero_a - numero_b
+        mensaje = f"El resultado de la resta es: {resultado}"
+        alert("Restar",mensaje)
 
     def btn_multiplicar_on_click(self):
-        numero_a = int(self.txt_operador_a.get())
-        numero_b = int(self.txt_operador_b.get())
-        multiplicacion = str(numero_a * numero_b)
-        alert("Multiplicar",("El resultado de la multiplicacion es: " + multiplicacion))
+        numero_a = self.txt_operador_a.get()
+        numero_b = self.txt_operador_b.get()
+        numero_a = int(numero_a)
+        numero_b = int(numero_b)
+        resultado = numero_a * numero_b
+        mensaje = f"El resultado de la multiplicacion es: {resultado}"
+        alert("Multiplicar",mensaje)
 
     def btn_dividir_on_click(self):
-        numero_a = int(self.txt_operador_a.get())
-        numero_b = int(self.txt_operador_b.get())
-        division = str(numero_a / numero_b)
-        alert("Dividir",("El resultado de la division es: " + division))
+        numero_a = self.txt_operador_a.get()
+        numero_b = self.txt_operador_b.get()
+        numero_a = int(numero_a)
+        numero_b = int(numero_b)
+        division = numero_a / numero_b
+        mensaje = f"El resultado de la division es: {division}"
+        alert("Dividir",mensaje)
         
 if __name__ == "__main__":
     app = App()

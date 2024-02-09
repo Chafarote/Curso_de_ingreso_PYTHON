@@ -42,9 +42,12 @@ class App(customtkinter.CTk):
         self.btn_calcular.grid(row=2, pady=20, columnspan=2, sticky="nsew")
 
     def btn_calcular_on_click(self):
-        importe = int(self.txt_importe.get())
-        descuento = importe * int(self.txt_descuento.get()) /100
-        alert("Monto con descuento",importe - descuento)
+        importe = self.txt_importe.get()
+        importe = float(importe)
+        descuento = self.txt_descuento.get()
+        descuento = importe * float(descuento) / 100
+        mensaje = f"El importe con descuento es de: {importe - descuento}"
+        alert("Descuento",mensaje)
 
 
 

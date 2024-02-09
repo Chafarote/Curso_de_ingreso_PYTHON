@@ -1,3 +1,4 @@
+import math
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
@@ -47,14 +48,21 @@ class App(customtkinter.CTk):
         self.btn_tiempo_llegada.grid(row=4, pady=10, padx=30, columnspan=2, sticky="nsew")
     
     def btn_cantidad_camiones_on_click(self):
-        toneladas = int(self.txt_toneladas.get())
-        camiones = toneladas // 3.5
-        alert("Camiones",("Cantidad de camiones:",camiones))
+        toneladas = self.txt_toneladas.get()
+        toneladas = int(toneladas)
+        camiones = math.ceil(toneladas / 3.5)
+        mensaje = f"Se necesitan {camiones} camiones"
+        alert("Camiones",mensaje)
 
     def btn_tiempo_llegada_on_click(self):
-        km = int(self.txt_kilometros.get())
-        horas = km / 90
-        alert("horas",("Tarda:",horas))
+        km = self.txt_kilometros.get()
+        km = int(km)
+        horas = km // 90
+        minutos = km % 90
+        minutos = (60 / 90) * minutos
+        minutos = math.ceil(minutos)
+        mensaje = f"El camion tarda: {horas}hs {minutos}min en llegar"
+        alert("Viaje",mensaje)
     
     
 if __name__ == "__main__":
