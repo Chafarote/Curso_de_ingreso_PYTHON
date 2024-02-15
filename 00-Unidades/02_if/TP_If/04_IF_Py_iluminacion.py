@@ -44,41 +44,44 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
+        PRECIO = 800
+        descuento = 0
+
         marca = self.combobox_marca.get()
         cantidad = self.combobox_cantidad.get()
-        precio = 800
 
         cantidad = int(cantidad)
-        total = cantidad * precio
+        total = cantidad * PRECIO
 
         if cantidad >= 6:
-            total = total / 2
-        else:
-            if cantidad == 5 and marca == "ArgentinaLuz":
-                total = total * 0.60
-            else:
-                if cantidad == 5:
-                    total = total * 0.70
+            descuento = 50
+        elif cantidad == 5:
+                if marca == "ArgentinaLuz":
+                    descuento = 40
                 else:
-                    if cantidad == 4 and marca == "ArgentinaLuz" or marca == "FelipeLamparas":
-                        total = total * 0.75
-                    else:
-                        if cantidad == 4:
-                            total = total * 0.80
-                        else:
-                            if cantidad == 3 and marca == "ArgentinaLuz":
-                                total = total * 0.85
-                            else:
-                                if cantidad == 3 and marca == "FelipeLamparas":
-                                    total = total * 0.90
-                                else:
-                                    if cantidad == 3:
-                                        total = total * 0.95
+                    descuento = 30
+        elif cantidad == 4:
+                if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                    descuento = 25
+                else:
+                    descuento = 20
+        elif cantidad == 3:
+                if marca == "ArgentinaLuz":
+                    descuento = 15
+                elif marca == "FelipeLamparas":
+                    descuento = 10
+                else:
+                    descuento = 5
 
-        if total > 4000:
-            total = total * 0.95
+        descuento_a_realizar = total * descuento / 100
+        precio_con_descuento = total - descuento_a_realizar
+        mensaje = f"Se le raliza un {descuento}% de descuento \n El total es ${precio_con_descuento}"
+        
+        if precio_con_descuento > 4000:
+            precio_con_descuento *= 0.95
+            mensaje = f"Se le raliza un {descuento}% de descuento \n Por superar los $4000 tiene un descuento extra del 5% \n El total es ${precio_con_descuento}"
 
-        alert("Total",total)
+        alert("Total",mensaje)
 
 
         
