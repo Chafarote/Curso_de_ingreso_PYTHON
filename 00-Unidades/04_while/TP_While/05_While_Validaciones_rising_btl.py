@@ -1,3 +1,4 @@
+import re
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
@@ -11,7 +12,8 @@ apellido: Gomez
 TP: While_validaciones_rising_btl
 ---
 Enunciado:
-Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
+Rising BTL. Empresa dedicada a la toma de datos para realizar estadísticas y censos nos pide realizar una carga de datos validada e ingresada 
+por ventanas emergentes solamente (para evitar hacking y cargas maliciosas) y luego asignarla a cuadros de textos. 
 
 Los datos requeridos son los siguientes:
     Apellido
@@ -40,38 +42,32 @@ class App(customtkinter.CTk):
 
         self.label2 = customtkinter.CTkLabel(master=self, text="Estado")
         self.label2.grid(row=2, column=0, padx=20, pady=10)
-        self.txt_tipo = customtkinter.CTkEntry(master=self)
-        self.txt_tipo.grid(row=2, column=1, padx=20, pady=10)
+
+        self.combobox_tipo = customtkinter.CTkComboBox(master=self, values=["Soltero/a", "Casado/a", "Divorciado/a", "Viudo/a"])
+        self.combobox_tipo.grid(row=2, column=1, padx=20, pady=10)
 
         self.label3 = customtkinter.CTkLabel(master=self, text="Legajo")
         self.label3.grid(row=3, column=0, padx=20, pady=10)
         self.txt_legajo = customtkinter.CTkEntry(master=self)
         self.txt_legajo.grid(row=3, column=1)
 
-        self.btn_validar = customtkinter.CTkButton(
-            master=self, text="Validar", command=self.btn_validar_on_click)
+        self.btn_validar = customtkinter.CTkButton(master=self, text="Validar", command=self.btn_validar_on_click)
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+        apellido = prompt("Ingreso de datos","Ingrese su apellido:")
+        while apellido == None or (not re.fullmatch(r"[A-Za-z ]{1,20}", apellido)):
+            apellido = prompt("Ingreso de datos","Reingrese su apellido:")
 
-        while True:
-            apellido = prompt("Carga de datos","Ingrese su apellido:")
-            while apellido == "" or apellido.isdigit():
-                apellido = prompt("Carga de datos","Reingrese su apellido:")
+        edad = prompt("Ingreso de datos","Ingrese su edad:")
+        while edad == None or edad == "" or not edad.isdigit() or int(edad) < 18 or int(edad) > 90:
+            edad = prompt("Ingreso de datos","Reingrese su edad")
 
-            edad = prompt("Carga de datos","Ingrese su edad")
-            while edad == "" or not edad.isdigit():
-                edad = prompt("Carga de datos","Reingrese su edad:")
+        estado_civil = prompt("Ingreso de datos","Ingrese su estado civil:")
+        while estado_civil == None or estado_civil == "" or not estado_civil.isalpha:
+            estado_civil = prompt("Ingreso de datos","Reingrese su esatdo civil:")
 
-            estado_civil = prompt("Carga de datos","Ingrese su estado civil:")
-            while estado_civil == "" or estado_civil.isdigit():
-                estado_civil = prompt("a","a")
-
-            numero_de_legajo = prompt("Carga de datos","Ingrese su numero de legajo")
-
-            if numero_de_legajo == None:
-                break
-
+            
 
 if __name__ == "__main__":
     app = App()

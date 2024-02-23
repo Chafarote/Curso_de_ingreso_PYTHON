@@ -20,6 +20,8 @@ Luego calcular:
     D. Cantidad de números negativos ingresados
     E. Cantidad de ceros
     F. Diferencia entre la cantidad de los números positivos ingresados y los negativos
+    G. El máximo valor. 
+    H. El mínimo valor (incluyendo en que iteracion se encontro, solo la primera)
 
 Informar los resultados mediante alert()
 
@@ -37,6 +39,7 @@ class App(customtkinter.CTk):
 
 
     def btn_comenzar_ingreso_on_click(self):
+        contador_iteracion = 1
         contador_positivo = 0
         contador_negativo = 0
         contador_de_ceros = 0
@@ -46,11 +49,19 @@ class App(customtkinter.CTk):
         while True:
             numero = prompt("UTN","Ingrese un numero:")
 
-            if numero == None:
+            if numero == None or numero == "":
                 break
-            
+
             numero = int(numero)
-            
+
+            if contador_iteracion == 1 or numero > numero_maximo:
+                numero_maximo = numero
+            if contador_iteracion == 1 or numero < numero_minimo:
+                numero_minimo = numero
+                iteracion_negativa = contador_iteracion
+
+            contador_iteracion += 1
+
             if numero > 0:
                 acumulador_positivo += numero
                 contador_positivo += 1
@@ -63,10 +74,12 @@ class App(customtkinter.CTk):
         diferencia = contador_negativo - contador_positivo
         if diferencia < 0:
             diferencia *= -1
-        
-        mensaje = f"La suma acumulada de los negativos es: {acumulador_negativo} \nLa suma acumulada de los positivos es: {acumulador_positivo} \nLa cantidad de numeros positivos ingresados es: {contador_positivo} \nLa cantidad de numeros negatos es: {contador_negativo} \nLa cantidad de ceros es: {contador_de_ceros} \nLa diferencia entre la cantidad de numeros negativos y positivos ingresados es de: {diferencia}"
 
-        alert("Resultado",mensaje)
+        if contador_iteracion == 1:
+            alert("Resultado","No se ingresaron datos")
+        else:
+            mensaje = f"La suma acumulada de los negativos es: {acumulador_negativo} \nLa suma acumulada de los positivos es: {acumulador_positivo} \nLa cantidad de numeros positivos ingresados es: {contador_positivo} \nLa cantidad de numeros negatos es: {contador_negativo} \nLa cantidad de ceros es: {contador_de_ceros} \nLa diferencia entre la cantidad de numeros negativos y positivos ingresados es de: {diferencia} \nEl maximo valor es: {numero_maximo} \nEl valor minimo es: {numero_minimo} y fue ingresado en la iteracion: {iteracion_negativa}"
+            alert("Resultado",mensaje)
 
     
 if __name__ == "__main__":
