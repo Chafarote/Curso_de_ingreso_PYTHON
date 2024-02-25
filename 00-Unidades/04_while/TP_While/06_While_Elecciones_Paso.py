@@ -8,6 +8,7 @@ import customtkinter
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 TP: While_elecciones_paso
 ---
