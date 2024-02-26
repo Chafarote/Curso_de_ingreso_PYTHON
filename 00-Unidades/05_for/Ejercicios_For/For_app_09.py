@@ -39,15 +39,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        contador = 0
         numero_secreto = random.randint(1,100)
         #print(numero_secreto)
 
         for i in range(1,8):
             numero_jugador = prompt("Adivinando ando","Ingrese un numero:")
             numero_jugador = int(numero_jugador)
-
-            contador += 1
 
             if numero_jugador == numero_secreto:
                 break
@@ -57,7 +54,7 @@ class App(customtkinter.CTk):
             elif numero_jugador > numero_secreto:
                 print("Se paso del numero secreto")
 
-        match contador:
+        match i:
             case 1:
                 mensaje = "usted es un psiquico"
             case 2:
