@@ -9,6 +9,7 @@ import random
 '''
 nombre: Gabriel
 apellido: Gomez
+tutor: Natalí
 ---
 Ejercicio: for_01
 ---
