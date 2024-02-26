@@ -7,8 +7,8 @@ import random
 
 
 '''
-nombre:
-apellido:
+nombre: Gabriel
+apellido: Gomez
 ---
 Ejercicio: for_01
 ---
@@ -17,7 +17,7 @@ Al presionar el botón Mostrar 5 veces un mensaje (utilizando el Dialog Alert) c
 '''
 
 class App(customtkinter.CTk):
-    
+
     def __init__(self):
         super().__init__()
 
@@ -28,9 +28,8 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass 
-       
-            
+        for i in range(5):
+            alert("UTN",i+1)
 
 if __name__ == "__main__":
     app = App()

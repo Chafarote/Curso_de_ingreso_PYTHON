@@ -1,3 +1,4 @@
+import random
 import tkinter
 from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
@@ -5,8 +6,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Gabriel
+apellido: Gomez
 ---
 Ejercicio: for_09
 ---
@@ -37,10 +38,38 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-                
+        contador = 0
+        numero_secreto = random.randint(1,100)
+        #print(numero_secreto)
 
-    
+        for i in range(1,8):
+            numero_jugador = prompt("Adivinando ando","Ingrese un numero:")
+            numero_jugador = int(numero_jugador)
+
+            contador += 1
+
+            if numero_jugador == numero_secreto:
+                break
+
+            if numero_jugador < numero_secreto:
+                print("Falta para llegar al numero secreto")
+            elif numero_jugador > numero_secreto:
+                print("Se paso del numero secreto")
+
+        match contador:
+            case 1:
+                mensaje = "usted es un psiquico"
+            case 2:
+                mensaje = "Excelente percepcion"
+            case 3:
+                mensaje = "Esto es suerte"
+            case 4|5|6:
+                mensaje = "Excelente tecnica"
+            case _:
+                mensaje = "Perdiste, serte para la proxima"
+
+        print(mensaje)
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
